@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
+import Search from './components/search'
+import Header from './components/header'
+import Home from './pages/home'
+import { useLoadPeople } from './hooks'
+import CardPage from './pages/card-page'
 
-function App() {
+export const App = () => {
+  useLoadPeople()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Header label='Star Wars'>
+        <Search />
+      </Header>
+
+      <Container className="py-5">
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/card/:id' element={<CardPage />}></Route>
+        </Routes>
+      </Container>
+    </Router>
+  )
 }
 
-export default App;
+export default App
