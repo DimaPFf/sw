@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form } from 'react-bootstrap'
-import { People, PeopleKey } from '../../types'
 
 type Props = {
   field: string

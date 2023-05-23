@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { LocalPeople, People } from '../types'
-import { PeopleState } from './peopleSlice'
 
 export interface LocalEditedPeopleState {
   localEditedPeople: LocalPeople,
